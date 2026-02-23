@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b05a58d2-c5a4-4ece-8e7e-3d5b2678eb49" activeEnvironment="Default" name="Student-Management" soapui-version="5.8.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="bf713a26-02bb-4f9e-ac4d-de29a903920c" wsaVersion="NONE" name="StudentPdfPortSoap11" type="wsdl" bindingName="{http://student.com/pdf}StudentPdfPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/studentPdf.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/studentPdf.wsdl"><con:part><con:url>http://localhost:8080/ws/studentPdf.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://student.com/pdf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://student.com/report" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://student.com/pdf">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://student.com/report" xmlns:tns="http://student.com/report" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="StudentReportRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="studentId" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="StudentReportResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="pdfBase64" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="StudentReportRequest">
+    <wsdl:part element="sch:StudentReportRequest" name="StudentReportRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="StudentReportResponse">
+    <wsdl:part element="sch:StudentReportResponse" name="StudentReportResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="StudentPdfPort">
+    <wsdl:operation name="StudentReport">
+      <wsdl:input message="tns:StudentReportRequest" name="StudentReportRequest"></wsdl:input>
+      <wsdl:output message="tns:StudentReportResponse" name="StudentReportResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StudentPdfPortSoap11" type="tns:StudentPdfPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="StudentReport">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="StudentReportRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="StudentReportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StudentPdfPortService">
+    <wsdl:port binding="tns:StudentPdfPortSoap11" name="StudentPdfPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="0baf59b1-4324-4688-bdd1-a13c6e8a001a" isOneWay="false" action="" name="StudentReport" bindingOperationName="StudentReport" type="Request-Response" outputName="StudentReportResponse" inputName="StudentReportRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="98e2d428-e109-4a91-aaff-018216f54892" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+                  xmlns:rep="http://student.com/report">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <rep:StudentReportRequest>
+         <studentId>1</studentId>
+      </rep:StudentReportRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://student.com/pdf/StudentPdfPort/StudentReportRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

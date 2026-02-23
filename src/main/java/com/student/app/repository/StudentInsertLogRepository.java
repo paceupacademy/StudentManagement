@@ -1,0 +1,9 @@
+package com.student.app.repository;
+
+import com.student.app.model.StudentInsertLog;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface StudentInsertLogRepository extends JpaRepository<StudentInsertLog, Integer> {
+}
