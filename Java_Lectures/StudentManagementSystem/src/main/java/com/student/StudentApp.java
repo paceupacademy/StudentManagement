@@ -2,6 +2,8 @@ package com.student;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * MySpringBootApp:
@@ -36,5 +38,15 @@ public class StudentApp {
         // - Starts embedded server (Tomcat/Jetty/Undertow) if web dependency is present.
         // - ApplicationContext is created, beans are instantiated, dependencies injected.
         SpringApplication.run(StudentApp.class, args);
+        /*
+         * BeanLifecycleDemoExample be =  new BeanLifecycleDemoExample();
+         * be.destroy();
+         */
+        /*
+         * ConfigurableApplicationContext is interface represent Spring IoC container
+         * AnnotationConfigApplicationContext Spring Container concrete implementation 
+         */
+        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(BeanLifecycleDemoExample.class);
+        context.close();
     }
 }

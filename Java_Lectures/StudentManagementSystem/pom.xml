@@ -5,23 +5,26 @@
 
 	<groupId>com.student</groupId>
 	<artifactId>student-management</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>Student Management System</name>
 	<description>Spring Boot MVC Application with Excel, WSDL, REST, JPA</description>
 
 	<properties>
-		<java.version>18</java.version>
+		<java.version>17</java.version>
 	</properties>
-
+	
+	
 	<dependencies>
-		<!-- Spring Boot Starter Web -->
+		<!-- Spring Boot Starter Web 
+		Used to build for REST API / Web Applications-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>3.5.3</version>
 		</dependency>
 
-		<!-- Spring Boot Starter Data JPA -->
+		<!-- Spring Boot Starter Data JPA 
+		Database Operations using JPA/Hibernate-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -36,14 +39,17 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Spring Boot Starter Security -->
+		<!-- Spring Boot Starter Security
+		Authentication and Authorization -->
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 			<version>3.5.3</version>
 		</dependency>
 
-		<!-- Validation -->
+		<!-- Validation
+		Input Validation -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
@@ -64,13 +70,14 @@
 			<version>5.5.13.2</version>
 		</dependency>
 
+		<!-- XML Binding (Java -> XML -> Java) Marshalling and Unmarshalling -->
 		<dependency>
 			<groupId>jakarta.xml.bind</groupId>
 			<artifactId>jakarta.xml.bind-api</artifactId>
 			<version>4.0.2</version>
 		</dependency>
 
-		<!-- JAXB Runtime -->
+		<!-- JAXB Runtime XML Processing-->
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>
 			<artifactId>jaxb-runtime</artifactId>
@@ -90,12 +97,15 @@
 			<artifactId>commons-fileupload2-jakarta-servlet6</artifactId>
 			<version>2.0.0-M4</version>
 		</dependency>
-		<!-- Spring Web Services -->
+		
+		<!-- Spring Web Services SOAP web services -->
 		<dependency>
 			<groupId>org.springframework.ws</groupId>
 			<artifactId>spring-ws-core</artifactId>
 			<version>4.1.0</version>
 		</dependency>
+		
+		<!-- Reading/parsing WSDL files-->
 		<dependency>
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
@@ -106,12 +116,14 @@
 
 	<build>
 		<plugins>
+			<!-- Generate Java classes from XSD/WSDL
+			Converting XML structure to Java POJO-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>3.5.3</version>
 				<configuration>
-					<mainClass>com.student.app.StudentApp</mainClass>
+					<mainClass>com.student.StudentApp</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -144,6 +156,7 @@
 					<compilerArgs>
 						<arg>-parameters</arg>
 					</compilerArgs>
+					<release>17</release>
 				</configuration>
 			</plugin>
 		</plugins>
